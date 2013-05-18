@@ -18,12 +18,12 @@ char keys[ROWS][COLS] = {
   {'1','2','3'},
   {'4','5','6'},
   {'7','8','9'},
-  {'#','0','*'}
+  {'*','0','#'}
 };
 // Connect keypad ROW0, ROW1, ROW2 and ROW3 to these Arduino pins.
-byte rowPins[ROWS] = { 9, 8, 7, 6 };
+byte rowPins[ROWS] = { 6, 7, 8, 9 };
 // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
-byte colPins[COLS] = { 12, 11, 10 }; 
+byte colPins[COLS] = { 10, 11, 12 }; 
 
 // Create the Keypad
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
@@ -32,6 +32,7 @@ Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 void setup()
 {
+  pinMode(ledpin, OUTPUT);
   digitalWrite(ledpin, HIGH);
   Serial.begin(9600);
 }
